@@ -1,0 +1,32 @@
+services:
+
+  postgres:
+    image: postgres:16
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rahul123
+      POSTGRES_DB: taskmanager
+
+    ports:
+      - "5432:5432"
+
+  backend:
+
+    build: ./backend
+
+    ports:  
+      - "5000:5000"
+
+    depends_on:
+      - postgres
+
+  frontend:
+
+    build: ./frontend
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend
