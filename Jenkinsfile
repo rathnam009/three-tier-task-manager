@@ -32,7 +32,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 sh '''
-                cd backend
+                cd Backend
                 npm install
                 '''
             }
@@ -53,7 +53,7 @@ pipeline {
                 sh '''
                 docker build -t frontend-repo ./frontend
 
-                docker build -t backend-repo ./backend
+                docker build -t backend-repo ./Backend
                 '''
             }
         }
