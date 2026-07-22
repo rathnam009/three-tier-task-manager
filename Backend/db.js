@@ -1,4 +1,5 @@
 // db.js — sets up a connection pool to the PostgreSQL database (Tier 3)
+
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -9,6 +10,11 @@ const pool = new Pool({
   database: process.env.DB_NAME || 'taskdb',
   max: 10,
   idleTimeoutMillis: 30000,
+
+  // Required for AWS RDS PostgreSQL
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 pool.on('error', (err) => {
