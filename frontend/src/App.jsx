@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
+const API_URL =
+  "http://task-manager-alb-123456789.us-east-1.elb.amazonaws.com";
+
 function App() {
   const [title, setTitle] = useState("");
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/api/tasks");
+    const res = await fetch(`${API_URL}/api/tasks`);
     const data = await res.json();
     setTasks(data);
   };
@@ -18,7 +21,7 @@ function App() {
   const addTask = async () => {
     if (!title.trim()) return;
 
-    await fetch("http://localhost:5000/api/tasks", {
+    await fetch(`${API_URL}/api/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +34,7 @@ function App() {
   };
 
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/api/tasks/${id}`, {
+    await fetch(`${API_URL}/api/tasks/${id}`, {
       method: "DELETE",
     });
 
@@ -42,6 +45,7 @@ function App() {
     <div className="app">
       <div className="card">
         <h1>Task Manager</h1>
+
         <p className="subtitle">
           Three-Tier Application (React + Node.js + PostgreSQL)
         </p>
