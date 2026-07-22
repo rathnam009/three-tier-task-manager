@@ -6,7 +6,7 @@ const pool = new Pool({
   host: process.env.DB_HOST || 'taskmanager.cqteocc2o10h.us-east-1.rds.amazonaws.com',
   port: process.env.DB_PORT || 5432,
   user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || '<YOUR_RDS_PASSWORD>',
+  password: process.env.DB_PASSWORD || 'rahul123',
   database: process.env.DB_NAME || 'postgres',
 
   max: 10,
