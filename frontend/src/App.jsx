@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const API_URL =
-  "http://task-manager-alb-123456789.us-east-1.elb.amazonaws.com";
+  "http://task-manager-alb-1481202461.us-east-1.elb.amazonaws.com";
 
 function App() {
   const [title, setTitle] = useState("");
